@@ -1,0 +1,22 @@
+<section>
+    <h2>{{title}}</h2>
+    <hr>
+    <select class="form-select mt-2 mb-2" (change)="SelectCurso($event)">
+        <option value="">Seleciona un curso</option>
+        <option value="1eso">1° Curso</option>
+        <option value="2eso">2° Curso</option>
+        <option value="3eso">3° Curso</option>
+        <option value="4eso">4° Curso</option>
+
+    </select>
+    <div class="row g-2  " *ngIf="arryAlumno.length > 0; else bloqueElse">
+        <article *ngFor="let alumno of arryAlumno" class="col-12 col-md-6 col-xl-4">
+            <!-- <div class="caja"></div> -->
+            <app-alumnos [miAlumno]="alumno"></app-alumnos>
+        </article>
+    </div>
+    <ng-template #bloqueElse>
+        <h2>no hay Alumno en este curso</h2>
+    </ng-template>
+
+</section>
